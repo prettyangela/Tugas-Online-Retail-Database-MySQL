@@ -11,3 +11,17 @@ LIMIT 1;
 +-------------+----------------+
 |           4 |              4 |
 +-------------+----------------+
+
+-- Daftar nama kategori yang paling banyak barangnnya
+SELECT Category.category_name, COUNT(Products.product_id) as total_products
+FROM Category
+JOIN Products ON Category.category_id = Products.category_id
+GROUP BY Category.category_name
+ORDER BY total_products DESC
+limit 1;
+
++---------------+----------------+
+| category_name | total_products |
++---------------+----------------+
+| Clothing      |              4 |
++---------------+----------------+
